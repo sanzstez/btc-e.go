@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Btc-e.go : " />
+    <meta name="description" content="BTC-E Go! : Мониторинг состояния цен на бирже криптовалют btc-e.com" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Btc-e.go</title>
+    <title>BTC-E Go!</title>
   </head>
 
   <body>
@@ -18,8 +18,8 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/sanzstez/btc-e.go">View on GitHub</a>
 
-          <h1 id="project_title">Btc-e.go</h1>
-          <h2 id="project_tagline"></h2>
+          <h1 id="project_title">BTC-E Go!</h1>
+          <h2 id="project_tagline">Мониторинг состояния цен на бирже криптовалют btc-e.com</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/sanzstez/btc-e.go/zipball/master">Download this project as a .zip file</a>
@@ -35,7 +35,7 @@
 <a name="%D0%9A%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D0%BE-%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B5" class="anchor" href="#%D0%9A%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D0%BE-%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B5"><span class="octicon octicon-link"></span></a>Коротко о программе</h1>
 
 <ul>
-<li>Программа обладает минимально необходимым функционалом для удобного непрерывного мониторинга состояний цен на бирже криптовалют <strong>btc-e.com</strong> . </li>
+<li>Программа обладает минимально необходимым функционалом для удобного непрерывного мониторинга состояний цен на бирже криптовалют <strong>btc-e.com</strong> . Hard минимал и ничего больше. Не нужно вводить никакие ключи и проходить авторизацию. **Используется исключительно публичное API биржи! **</li>
 <li>Разработка ведется на языке Python 2.7.x, для создания графической оболочки используется PyQt (PyQt4-4.10.3-gpl-Py2.7-Qt4.8.5-x64).</li>
 <li>В данный момент существует сборка программы в исполняемый файл только для ОС семейства Windows (XP, Vista, 7, 8), с помощью модуля Py2exe.</li>
 <li>В дальнейшем планируется создание установочных пакетов для ОС семейства Linux и Mac OS X.
@@ -48,20 +48,47 @@
 <h2>
 <a name="%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B8-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B8%D0%B7-%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5-ubuntu-1204" class="anchor" href="#%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B8-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B8%D0%B7-%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5-ubuntu-1204"><span class="octicon octicon-link"></span></a>Установка и запуск из исходников на платформе Ubuntu 12.04</h2>
 
+<p>Распаковать папку с программой в домашнюю директорию, предварительно выполнив установку компонетов.</p>
+
 <pre><code>$ sudo apt-get install python-qt4
 $ python btce_go.pyw
 </code></pre>
 
 <h1>
-<a name="%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9-%D0%B2%D0%B8%D0%B4-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B" class="anchor" href="#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9-%D0%B2%D0%B8%D0%B4-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B"><span class="octicon octicon-link"></span></a>Основной вид графического интерфейса программы</h1>
+<a name="%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B" class="anchor" href="#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B"><span class="octicon octicon-link"></span></a>Основные возможности программы</h1>
 
-<p><img src="http://cs312223.vk.me/v312223445/7201/h3ap-lbIen4.jpg" alt="main"></p>
-
-<h1>
-<a name="%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B" class="anchor" href="#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B"><span class="octicon octicon-link"></span></a>Основные возможности программы:</h1>
+<p><img src="http://cs312223.vk.me/v312223445/7201/h3ap-lbIen4.jpg" alt="main"><em>Главное окно программы</em></p>
 
 <ol>
-<li>Используя API биржи программа загружает и обрабатывает актуальные курсы валют</li>
+<li>Каждый из курсов валют имеет свой собственный информационный блок на котором указаны:</li>
+<li>Пиктограммы пар валют (с коротким описанием каждой валюты в всплывающем окошке)</li>
+<li>Последняя цена ордера на продажу</li>
+<li>Разница с предыдущей ценой на продажу</li>
+<li>Последняя цена ордера на покупку</li>
+<li>Разница с предыдущей ценой на покупку</li>
+<li>Время обновления курса по бирже</li>
+<li><p>Цены: последняя, минимальная, максимальная, средняя и разница (разница между макс и мин ценами).
+<img src="http://cs312223.vk.me/v312223445/7208/rhmMj2hI2Ws.jpg" alt="cource"></p></li>
+<li><p>Нижняя панель программы содержит время последнего обновления данных программой и командные кнопки</p></li>
+</ol><p>Командные кнопки:</p>
+
+<ul>
+<li>
+<strong>Поверх всех окон</strong> - позволяет закрепить программу поверх все остальных окон</li>
+<li>
+<strong>Сделать скриншот курсов</strong> - позволяет сделать скриншот текущего курса валют выбранных в программе.
+Доступна горячая комбинация клавиш <strong>Ctrl+Q</strong>
+</li>
+<li><p><strong>Переключить консоль</strong> - активация и дезактивация консоли ошибок обращения к серверу API.
+Консоль является служебным инструментом и может быть отключена во время обычной работы.
+<img src="http://cs312223.vk.me/v312223445/720f/J7UETkMEcWs.jpg" alt="console"></p></li>
+</ul><ol>
+<li>Возможность работы программы в трее.</li>
+</ol><h1>
+<a name="%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B" class="anchor" href="#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B"><span class="octicon octicon-link"></span></a>Основные настройки программы:</h1>
+
+<ol>
+<li>Используя API биржи, программа загружает и обрабатывает актуальные курсы валют</li>
 <li>Возможность выбора мониторинга только необходимого перечня криптовалют из списка доступных. Чтобы задать перечень и нужный порядок валют для мониторинга необходимо в конфигурационном файле <strong>settings.ini</strong> найти значение <strong>crypto_currencies_list</strong> и изменить его значение. </li>
 </ol><p>Например, для отображения курсов BTC/USD, LTC/USD и BTC/LTC, необходимо указать:</p>
 
@@ -175,14 +202,53 @@ $ python btce_go.pyw
 <td>xpm_btc</td>
 </tr>
 </tbody>
-</table>
+</table><ol>
+<li>Задать период обновления курса можно с помощью параметра <strong>update_period</strong> (указывается в секундах):</li>
+</ol><pre><code>update_period = 5
+</code></pre>
+
+<ol>
+<li>Таймаут запроса от API сервера биржи задается параметром <strong>request_timeout</strong> (указывается в секундах):</li>
+</ol><pre><code>request_timeout = 5
+</code></pre>
+
+<ol>
+<li>Возможность указать количество знаков после запятой для разницы курсов - параметр <strong>exp_signs</strong>:</li>
+</ol><pre><code>exp_signs = 6
+</code></pre>
+
+<ol>
+<li>Служебные параметры <strong>show_logger</strong>  и <strong>fix_window</strong> можно изменить в самой программе.</li>
+</ol><h1>
+<a name="%D0%9F%D0%BB%D0%B0%D0%BD%D1%8B-%D0%BD%D0%B0-%D0%B1%D1%83%D0%B4%D1%83%D1%89%D0%B5%D0%B5" class="anchor" href="#%D0%9F%D0%BB%D0%B0%D0%BD%D1%8B-%D0%BD%D0%B0-%D0%B1%D1%83%D0%B4%D1%83%D1%89%D0%B5%D0%B5"><span class="octicon octicon-link"></span></a>Планы на будущее</h1>
+
+<p>В случае, если программа обретет какой-никакой успех среди пользователей биржи я буду рассматривать возможность усовершенствования программы.
+Из возможных, есть такие идеи:
+1. Добавить возможность установки звукового сигнала и пороговых значений для каждого из курсов криптовалют чтобы не прозевать свои денежки =)
+2. Добавить возможность работы через прокси
+3. Создать графичесское окно настройки программы.</p>
+
+<h1>
+<a name="%D0%9F%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D1%8C-%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B" class="anchor" href="#%D0%9F%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D1%8C-%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B"><span class="octicon octicon-link"></span></a>Принять участие в разработке программы</h1>
+
+<p>Я работаю по такой схеме, что каждый желающий может принять участие в разработке программы, ее доводки и совершенствования.</p>
+
+<ul>
+<li>Рассматриваю пул-реквесты с новыми фичами в основную ветку программы.</li>
+<li>У программы есть своя группа Вконтакте, где можно внести свои предложения -&gt; <a href="http://vk.com/btce_go">http://vk.com/btce_go</a> (Стена и обсуждения открыты)</li>
+<li>Естественно разработчик жадный и будет просить вас подкинуть ему на пиво =) Сделать это можно, подкинув сколько не жалко на кошельки:
+BTC: <strong>151xG1K5pUVGbvguYd2vPfBSTy66Uifoq4</strong>
+LTC: <strong>LVdozFjRfpWJb7j5kDRrkmvMjBaFsm1Wza</strong>
+</li>
+</ul><h3>
+<a name="%D0%A1%D0%BF%D0%B0%D1%81%D0%B8%D0%B1%D0%BE-%D0%AF-%D1%80%D0%B0%D0%B4-%D0%B5%D1%81%D0%BB%D0%B8-%D0%BA%D0%BE%D0%BC%D1%83-%D0%BD%D0%B8%D0%B1%D1%83%D0%B4%D1%8C-%D0%BC%D0%BE%D1%8F-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0-%D0%B1%D1%8B%D0%BB%D0%B0-%D0%B5%D1%81%D1%82%D1%8C-%D0%B8-%D0%B1%D1%83%D0%B4%D0%B5%D1%82-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B9" class="anchor" href="#%D0%A1%D0%BF%D0%B0%D1%81%D0%B8%D0%B1%D0%BE-%D0%AF-%D1%80%D0%B0%D0%B4-%D0%B5%D1%81%D0%BB%D0%B8-%D0%BA%D0%BE%D0%BC%D1%83-%D0%BD%D0%B8%D0%B1%D1%83%D0%B4%D1%8C-%D0%BC%D0%BE%D1%8F-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0-%D0%B1%D1%8B%D0%BB%D0%B0-%D0%B5%D1%81%D1%82%D1%8C-%D0%B8-%D0%B1%D1%83%D0%B4%D0%B5%D1%82-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B9"><span class="octicon octicon-link"></span></a>Спасибо. Я рад, если кому-нибудь моя программа была, есть и будет полезной.</h3>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Btc-e.go maintained by <a href="https://github.com/sanzstez">sanzstez</a></p>
+        <p class="copyright">BTC-E Go! maintained by <a href="https://github.com/sanzstez">sanzstez</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
