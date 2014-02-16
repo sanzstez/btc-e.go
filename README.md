@@ -4,7 +4,10 @@
 
 Установочный файл для семейства ОС Windows (XP, Vista, 7, 8):
 
-Скачать: [sourceforge.net](https://sourceforge.net/projects/btcego/files/latest/download)
+Скачать последнюю версию с sourceforge.net: https://sourceforge.net/projects/btcego/files/latest/download
+
+***
+
 ![main](http://cs312223.vk.me/v312223445/7201/h3ap-lbIen4.jpg)
 
 *  **Примечания к релизу.**  С версии 1.2.9 добавлен новый параметр в settings.ini **fixed_update_period** . Не забудьте обновить файл конфигурации.
