@@ -7,7 +7,7 @@ from datetime import datetime
 from decimal import *
 from ConfigParser import SafeConfigParser
 
-__version__ = 'BTC-E Go! 1.3.0'
+__version__ = 'BTC-E Go! 1.3.1'
 
 ####################################### 
 
@@ -251,7 +251,7 @@ class About(QtGui.QDialog):
 class CryptoCource(QtCore.QThread):
     def __init__(self, coin_ids, request_timeout):
         QtCore.QThread.__init__(self)
-        self.coin_ids         = '-'.join(coin_ids)
+        self.coin_ids         = '-'.join(list(set(coin_ids)))
         self.request_timeout  = float(request_timeout)
         self.time_start       = time.time()
         self.errors           = ''
@@ -294,15 +294,13 @@ class Program(QtGui.QWidget):
         
         self.initProgramSettings()
         
-        
-        
         self.setWindowTitle(__version__)
         self.setWindowIcon(self.program_icon)
         self.setWindowFlags(self.window_fix)
         
         self.initializeSystemTray()
-        self.initProgramSettings()
         self.initHistoryStack()
+        self.initLastUpdateTimer()
         self.initCryptoCourcesView()
         self.runCryptoCourcesThread()
         
@@ -551,11 +549,10 @@ class Program(QtGui.QWidget):
             label_currency = getattr(self, coin_id)
             label_currency.setText(prepare_string)
             
-            self.originalPixmap = QtGui.QPixmap.grabWidget(self, QtCore.QRect(0, 0, 450, self.widget_height + 3))
-            
-            self.updateTime.setText(u'Обновление данных: %s' % time.strftime("%H:%M:%S %d-%m-%Y"))
-            
-            self.notify_processing(coin_id)
+        self.notify_processing(coin_id)
+        
+        self.originalPixmap = QtGui.QPixmap.grabWidget(self, QtCore.QRect(0, 0, 450, self.widget_height + 3))
+        self.last_update_timer_counter = 0
             
     def set_alarm_signal(self, coin_id):
         self.alarm_settings = AlarmSettingsPage(coin_id, self)
@@ -665,7 +662,21 @@ class Program(QtGui.QWidget):
                 'ppc' : { 'title' : 'Peercoin (PPC)', 'iso' : 'PPC', 'description' : u'Пиркоин (пиры, пипцы)' },
                 'ftc' : { 'title' : 'Feathercoin (FTC)', 'iso' : 'FTC', 'description' : u'(перья)' },
                 'xpm' : { 'title' : 'Primecoin (XPM)',   'iso' : 'XPM', 'description' : u'Праймкоин' },
+                'cnh' : { 'title' : 'Юань (CNH)',  'iso' : 'CNH', 'description' : u'Юани - китайские денежки' },
+                'gbp' : { 'title' : 'Фунт стерлингов (GBP)', 'iso' : 'GPB', 'description' : u'Фунт стерлингов (Great Britain Pound) - национальная валюта Великобритании.' },
                }
+        
+    def initLastUpdateTimer(self):
+        self.last_update_timer_counter = None
+        
+        self.last_update_timer = QtCore.QTimer(self)
+        self.connect(self.last_update_timer, QtCore.SIGNAL('timeout()'), self.LastUpdateTimerAction)
+        self.last_update_timer.start(1000)
+        
+    def LastUpdateTimerAction(self):
+        if self.last_update_timer_counter is not None:
+            self.updateTime.setText(u'Обновлено: %s сек. назад' % self.last_update_timer_counter)
+            self.last_update_timer_counter += 1
 
     def cryptoCoinInfo(self, coin_master, coin_slave):     
         prepared = [
