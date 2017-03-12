@@ -391,6 +391,8 @@ class Program(QtGui.QWidget):
   
     def initCryptoCourcesView(self):
         self.alarm_buttons = {}
+
+        print self.widget_height
         
         for index, item in enumerate(self.__crypto_currency__):
             coin_master, coin_slave = item.split('_')
@@ -399,7 +401,7 @@ class Program(QtGui.QWidget):
             label_currency = getattr(self, item) 
             
             text = u'''      
-                    <table width="100%" height="90" style="color: #186F8F; background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.4 #f4f4ff, stop: 0.5 #e7e7ff, stop: 1.0 #d0d9f0);"> 
+                    <table width="100%" height="95" style="color: #186F8F; background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.4 #f4f4ff, stop: 0.5 #e7e7ff, stop: 1.0 #d0d9f0);"> 
                       <tr>
                         <td align="center" style="font-size: 12px; padding: 5px 0px 0px 0px;"><b>Обновление данных курса {master} -> {slave} ...</b></td>
                       <tr>
@@ -410,11 +412,11 @@ class Program(QtGui.QWidget):
             
             label_currency.setText(text)
             label_currency.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
-            label_currency.setGeometry(QtCore.QRect(0, index*95 + 4, 450, 90))
+            label_currency.setGeometry(QtCore.QRect(0, index * self.block_height + 5, 450, 90))
             label_currency.setStyleSheet('background: #F2F2F2;')
     
             label_icon_currency_master = QtGui.QLabel(self)
-            label_icon_currency_master.setGeometry(4, index*95 + 5, 40, 40)
+            label_icon_currency_master.setGeometry(4, index * self.block_height  + 5, 40, 40)
             label_icon_currency_master.setToolTip(self.cryptoCoinInfo(coin_master, coin_slave))
             label_icon_currency_master.setCursor(QtGui.QCursor(QtCore.Qt.WhatsThisCursor))
             label_icon_currency_master.setStyleSheet('''
@@ -425,7 +427,7 @@ class Program(QtGui.QWidget):
             label_icon_currency_master.setScaledContents(True)
             
             label_icon_currency_slave = QtGui.QLabel(self)
-            label_icon_currency_slave.setGeometry(28, index*95 + 25, 20, 20)
+            label_icon_currency_slave.setGeometry(28, index * self.block_height  + 25, 20, 20)
             label_icon_currency_slave.setToolTip(self.cryptoCoinInfo(coin_master, coin_slave))
             label_icon_currency_slave.setCursor(QtGui.QCursor(QtCore.Qt.WhatsThisCursor))
             label_icon_currency_slave.setStyleSheet('''
@@ -437,7 +439,7 @@ class Program(QtGui.QWidget):
 
             self.alarm_buttons[item] = QtGui.QToolButton(self)
             self.alarm_buttons[item].setIcon(QtGui.QIcon('resources/alarm.png'))
-            self.alarm_buttons[item].move(0, index*95 + 78)
+            self.alarm_buttons[item].move(0, index * self.block_height  + 78)
             self.alarm_buttons[item].setIconSize(QtCore.QSize(15, 15))
             self.alarm_buttons[item].setStyleSheet('''
                                                     QToolButton {  border: 0; background: transparent; } 
@@ -491,7 +493,7 @@ class Program(QtGui.QWidget):
                             }
         
             prepare_string = u'''
-                              <table style="margin-left: 50px;" width="100%" height="42"> 
+                              <table style="margin-left: 50px;" width="100%" height="41"> 
                                 <tr>
                                   <td width="200" style="font-size: 13px; color: #bebebe;"><b>Продажа</b></td>
                                   <td style="font-size: 13px;color: #bebebe;"><b>Покупка</b></td>
@@ -518,7 +520,7 @@ class Program(QtGui.QWidget):
                                 </tr>
                               </table>
                       
-                              <table width="100%" height="32" style="color: #fff; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #9dd53a, stop: .5 #a1d54f, stop: .51 #80c217, stop: 1 #7cbc0a);"> 
+                              <table width="100%" style="color: #fff; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #9dd53a, stop: .5 #a1d54f, stop: .51 #80c217, stop: 1 #7cbc0a);"> 
                                 <tr>
                                   <td align="center" style="font-size: 11px; margin: 10px;">Последняя</td>
                                   <td align="center" style="font-size: 11px;">Минимум</td>
@@ -551,7 +553,7 @@ class Program(QtGui.QWidget):
             
         self.notify_processing(coin_id)
         
-        self.originalPixmap = QtGui.QPixmap.grabWidget(self, QtCore.QRect(0, 0, 450, self.widget_height + 3))
+        self.originalPixmap = QtGui.QPixmap.grabWidget(self, QtCore.QRect(0, 0, 450, self.widget_height + 20))
         self.last_update_timer_counter = 0
             
     def set_alarm_signal(self, coin_id):
@@ -642,7 +644,8 @@ class Program(QtGui.QWidget):
         getcontext().prec       = int(self.settings.get('exp_signs'))
         self.updateTimeCounter  = int(self.settings.get('update_period'))
         
-        self.widget_height      = 95 * len(self.__crypto_currency__)
+        self.block_height       = 95
+        self.widget_height      = self.block_height * len(self.__crypto_currency__)
         self.logger_offset      = 80 if self.settings.get_bool('show_logger') else 0
         self.signal_active      = False
         
@@ -658,12 +661,13 @@ class Program(QtGui.QWidget):
                 'rur' : { 'title' : u'Рубль (RUR)',   'iso' : 'RUR', 'description' : u'Рубль (деревянный).  Денежная единица Российской Федерации' },
                 'nmc' : { 'title' : 'Namecoin (NMC)', 'iso' : 'NMC', 'description' : u'Неймкоин (неймы).' },
                 'nvc' : { 'title' : 'Novacoin (NVC)', 'iso' : 'NVC', 'description' : u'Новакоин (нова)' },
-                'trc' : { 'title' : 'Terracoin (TRC)','iso' : 'TRC', 'description' : u'Терракоин (тараканы, терра)' },
                 'ppc' : { 'title' : 'Peercoin (PPC)', 'iso' : 'PPC', 'description' : u'Пиркоин (пиры, пипцы)' },
                 'ftc' : { 'title' : 'Feathercoin (FTC)', 'iso' : 'FTC', 'description' : u'(перья)' },
                 'xpm' : { 'title' : 'Primecoin (XPM)',   'iso' : 'XPM', 'description' : u'Праймкоин' },
                 'cnh' : { 'title' : 'Юань (CNH)',  'iso' : 'CNH', 'description' : u'Юани - китайские денежки' },
                 'gbp' : { 'title' : 'Фунт стерлингов (GBP)', 'iso' : 'GPB', 'description' : u'Фунт стерлингов (Great Britain Pound) - национальная валюта Великобритании.' },
+                'eth' : { 'title' : 'Ethercoin (ETH)', 'iso' : 'ETH', 'description' : u'Эфир (кефир)' },
+                'dsh' : { 'title' : 'Dashcoin (DSH)', 'iso' : 'DSH', 'description' : u'Дашкоин (даша, дашка)' },
                }
         
     def initLastUpdateTimer(self):
